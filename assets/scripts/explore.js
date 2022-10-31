@@ -48,8 +48,14 @@ function init() {
         utterThis.voice = voices[i];
       }
     }
-    img.src = "assets/images/smiling-open.png"
     synth.speak(utterThis);
+    utterThis.onstart = function(){
+      img.src = "assets/images/smiling-open.png"
+    };
+    utterThis.onend = function(){
+      img.src = "assets/images/smiling.png"
+    };
+    /*
     setInterval(function(){
       if(synth.speaking){
         img.src = "assets/images/smiling-open.png"
@@ -57,5 +63,6 @@ function init() {
         img.src = "assets/images/smiling.png"
       }
     },200)
+    */
   })
 }
